@@ -91,13 +91,13 @@ function transformData(data) {
     data.resources.forEach(resource => {
         resource.tags = resource.tags.map(tag => ({'name': tag, 'used': data.tags[tag].questions.length > 0})).sort(sortTags);
         const usedTags = resource.tags.map(tag => tag.used ? 1 : 0).reduce((a, b) => a + b, 0);
-        resource.tagUsage = Math.round(usedTags / resource.tags.length * 100);
+        resource.tagUsage = resource.tags.length > 0 ? Math.round(usedTags / resource.tags.length * 100) : 0;
     });
 
     data.questions.forEach(question => {
         question.tags = question.tags.map(tag => ({'name': tag, 'covered': data.tags[tag].resources.length > 0})).sort(sortTags);
         const coveredTags = question.tags.map(tag => tag.covered ? 1 : 0).reduce((a, b) => a + b, 0);
-        question.tagCoverage = Math.round(coveredTags / question.tags.length * 100);
+        question.tagCoverage = question.tags.length > 0 ? Math.round(coveredTags / question.tags.length * 100) : 0;
     });
 }
 

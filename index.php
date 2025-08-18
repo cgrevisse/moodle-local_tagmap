@@ -46,6 +46,7 @@ $PAGE->set_title(get_string('pluginname', 'local_tagmap'));
 $PAGE->set_heading(format_string($course->fullname));
 
 global $PAGE;
+$PAGE->requires->css(new moodle_url('/local/tagmap/styles.css'));
 
 echo $OUTPUT->header();
 
