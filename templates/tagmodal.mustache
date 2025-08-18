@@ -1,0 +1,119 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_tagmap/tagmodal
+
+    Modal template.
+
+    Example context (json):
+    
+    {
+      "tag": "hematuria",
+      "resources": [
+          {
+              "id": "R145",
+              "name": "Anomalies of urine composition and colour",
+              "url": "/mod/resource/view.php?id=145",
+              "tags": [
+                  {
+                      "name": "chyluria",
+                      "used": true
+                  },
+                  {
+                      "name": "hematuria",
+                      "used": true
+                  },
+                  {
+                      "name": "urinary infections",
+                      "used": true
+                  },
+                  {
+                      "name": "urine composition",
+                      "used": true
+                  },
+                  {
+                      "name": "urine color",
+                      "used": false
+                  }
+              ],
+              "tagUsage": 80
+          }
+      ],
+      "questions": [
+        {
+            "id": "Q1200",
+            "name": "Q004",
+            "url": "/question/bank/previewquestion/preview.php?id=1200&amp;courseid=18",
+            "tags": [
+                {
+                    "name": "Glomerulonephritis",
+                    "covered": true
+                },
+                {
+                    "name": "hematuria",
+                    "covered": true
+                },
+                {
+                    "name": "Urinary Sediment",
+                    "covered": true
+                },
+                {
+                    "name": "Acute tubular necrosis",
+                    "covered": false
+                },
+                {
+                    "name": "Cloudy urine",
+                    "covered": false
+                },
+                {
+                    "name": "Crush injury",
+                    "covered": false
+                },
+                {
+                    "name": "Nephrotic proteinuria",
+                    "covered": false
+                },
+                {
+                    "name": "Purple urine",
+                    "covered": false
+                }
+            ],
+            "tagCoverage": 38
+        }
+      ],
+      "numResources": 4,
+      "numQuestions": 9
+    }
+}}
+
+<h6>Resources ({{numResources}})</h6>
+<ul>
+  {{#resources}}
+    <li>
+      <a href="{{url}}" target="_blank" rel="noopener">{{name}}</a>
+    </li>
+  {{/resources}}
+</ul>
+
+<h6>Questions ({{numQuestions}})</h6>
+<ul>
+  {{#questions}}
+    <li>
+      <a href="{{url}}" target="_blank" rel="noopener">{{name}}</a>
+    </li>
+  {{/questions}}
+</ul>

@@ -1,0 +1,54 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_tagmap/tabs
+
+    Tabs.
+
+    Context (json):
+    {
+    }
+}}
+
+<ul class="nav nav-tabs my-4" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="clouds-tab" data-toggle="tab" data-target="#cloudsPane" type="button" role="tab" aria-controls="cloudsPane" aria-selected="true">{{#str}} pluginname, local_tagmap {{/str}}</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="resourceUsage-tab" data-toggle="tab" data-target="#resourceUsagePane" type="button" role="tab" aria-controls="resourceUsagePane" aria-selected="false">{{#str}} resourceusage, local_tagmap {{/str}}</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="questionCoverage-tab" data-toggle="tab" data-target="#questionCoveragePane" type="button" role="tab" aria-controls="questionCoveragePane" aria-selected="false">{{#str}} questioncoverage, local_tagmap {{/str}}</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="cloudsPane" role="tabpanel" aria-labelledby="clouds-tab">
+        <h4 class="mt-5 mb-4">{{#str}} resourcetags, local_tagmap {{/str}}</h4>
+        <div id="resourceTagCloud" class="tagmap"></div>
+
+        <h4 class="mt-5 mb-4">{{#str}} questiontags, local_tagmap {{/str}}</h4>
+        <div id="questionTagCloud" class="tagmap"></div>
+    </div>
+    <div class="tab-pane fade" id="resourceUsagePane" role="tabpanel" aria-labelledby="resourceUsage-tab">
+        <p>{{#str}} resourceusagedescription, local_tagmap {{/str}}</p>
+        <div id="resourceUsage"></div>
+    </div>
+    <div class="tab-pane fade" id="questionCoveragePane" role="tabpanel" aria-labelledby="questionCoverage-tab">
+        <p>{{#str}} questioncoveragedescription, local_tagmap {{/str}}</p>
+        <div id="questionCoverage"></div>
+    </div>
+</div>
