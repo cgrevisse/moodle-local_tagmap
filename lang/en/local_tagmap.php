@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'TagMap';
+$string['privacy:metadata'] = 'The TagMap plugin does not store any personal data.';
 $string['questioncoverage'] = 'Question Coverage';
 $string['questioncoveragedescription'] = 'This tab shows for each question how many tags have been covered in resources.';
 $string['questiontags'] = 'Question Tags';
