@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_tagmap';
-$plugin->release = '0.1.1';
-$plugin->version = 2025081901;
+$plugin->release = '0.1.2';
+$plugin->version = 2025082900;
 $plugin->requires = 2022112800;
 $plugin->maturity = MATURITY_ALPHA;
