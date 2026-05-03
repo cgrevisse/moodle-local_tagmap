@@ -24,7 +24,7 @@ use core_external\external_value;
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot.'/local/tagmap/lib.php');
+require_once($CFG->dirroot . '/local/tagmap/lib.php');
 
 /**
  * Class get_graphdata
@@ -34,7 +34,6 @@ require_once($CFG->dirroot.'/local/tagmap/lib.php');
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class get_graphdata extends external_api {
-
     /**
      * Returns description of method parameters
      * @return external_function_parameters
@@ -90,5 +89,4 @@ class get_graphdata extends external_api {
 
         return $graphdata;
     }
-
 }

@@ -82,7 +82,7 @@ function local_tagmap_get_graph_data(stdClass $course, int $contextid) {
 
     foreach ($resources as $resource) {
         $data['resources'][] = [
-            'id' => 'R'.$resource->id,
+            'id' => 'R' . $resource->id,
             'name' => $resource->name,
             'url' => (new \moodle_url('/mod/resource/view.php', ['id' => $resource->id]))->__toString(),
             'tags' => \core_tag_tag::get_item_tags_array('core', 'course_modules', $resource->id),
@@ -92,14 +92,13 @@ function local_tagmap_get_graph_data(stdClass $course, int $contextid) {
     // In Moodle 5.0, shared question banks were introduced. Courses can contain multiple question banks.
     global $CFG;
     if ($CFG->version >= 2025041400) {
-
         $allcaps = array_merge(question_edit_contexts::$caps['editq'], question_edit_contexts::$caps['categories']);
         $sharedbanks = question_bank_helper::get_activity_instances_with_shareable_questions([$course->id], [], $allcaps);
         $privatebanks = question_bank_helper::get_activity_instances_with_private_questions([$course->id], [], $allcaps);
 
         $qbankcontextids = implode(",", array_merge(
-            array_map(fn($sb): int => $sb->contextid, $sharedbanks),
-            array_map(fn($sb): int => $sb->contextid, $privatebanks)
+            array_map(fn($sb): int => $sb->cminfo->context->id, $sharedbanks),
+            array_map(fn($sb): int => $sb->cminfo->context->id, $privatebanks)
         ));
     } else {
         $qbankcontextids = $contextid;
@@ -113,7 +112,7 @@ function local_tagmap_get_graph_data(stdClass $course, int $contextid) {
         $question = \question_bank::load_question($qid);
 
         $data['questions'][] = [
-            'id' => 'Q'.$qid,
+            'id' => 'Q' . $qid,
             'name' => $question->name,
             'url' => \qbank_previewquestion\helper::question_preview_url($qid)->__toString(),
             'tags' => \core_tag_tag::get_item_tags_array('core_question', 'question', $qid),
